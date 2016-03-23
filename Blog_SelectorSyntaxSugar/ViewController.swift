@@ -10,6 +10,9 @@ import UIKit
 
 private extension Selector {
     static let buttonTapped = #selector(ViewController.buttonTapped(_:))
+    static let keyboardWillShowNotification = #selector(ViewController.keyboardWillShowNotification(_:))
+    static let barButtonItemTapped = #selector(ViewController.barButtonItemTapped(_:))
+    static let segmentedControlValueChanged = #selector(ViewController.segmentedControlValueChanged(_:))
 }
 
 class ViewController: UIViewController {
@@ -20,8 +23,23 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBOutlet var segmentedControl: UISegmentedControl! {
+        didSet {
+            segmentedControl.addTarget(self, action: .segmentedControlValueChanged, forControlEvents: .ValueChanged)
+        }
+    }
+    
+    @IBOutlet var barButtonItem: UIBarButtonItem! {
+        didSet {
+            barButtonItem.target = self
+            barButtonItem.action = .barButtonItemTapped
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: .keyboardWillShowNotification, name: "EwStringLiteral", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +49,11 @@ class ViewController: UIViewController {
     func buttonTapped(sender: UIButton) {
         print("Push me and then just touch me. Until I can get my... Satisfaction.")
     }
+    
+    func segmentedControlValueChanged(sender: UISegmentedControl) { }
+    
+    func barButtonItemTapped(sender: UIBarButtonItem) { }
+    
+    func keyboardWillShowNotification(notification: NSNotification) { }
 }
 
