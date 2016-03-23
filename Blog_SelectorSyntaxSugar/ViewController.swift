@@ -48,12 +48,19 @@ class ViewController: UIViewController {
 
     func buttonTapped(sender: UIButton) {
         print("Push me and then just touch me. Until I can get my... Satisfaction.")
+        print(Selector.buttonTapped)
     }
     
-    func segmentedControlValueChanged(sender: UISegmentedControl) { }
+    func segmentedControlValueChanged(sender: UISegmentedControl) {
+        print(Selector.segmentedControlValueChanged)
+    }
     
-    func barButtonItemTapped(sender: UIBarButtonItem) { }
+    func barButtonItemTapped(sender: UIBarButtonItem) {
+        print(Selector.barButtonItemTapped)
+    }
     
-    func keyboardWillShowNotification(notification: NSNotification) { }
+    func keyboardWillShowNotification(notification: NSNotification) {
+        print(Selector.keyboardWillShowNotification)
+    }
 }
 
