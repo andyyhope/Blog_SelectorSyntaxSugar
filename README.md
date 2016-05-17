@@ -9,7 +9,7 @@ Turn this:
 
 ````
 let button = UIButton(type: .System)
-        button.addTarget(self, action: #selector(ViewController.buttonTapped(_:)), forControlEvents: .TouchUpInside)
+button.addTarget(self, action: #selector(ViewController.buttonTapped(_:)), forControlEvents: .TouchUpInside)
 ````
 
 Into this:
