@@ -1,3 +1,5 @@
+![](https://cdn-images-1.medium.com/max/2000/1*L100yxVCNnyvn7Q5m8CCiQ.jpeg)
+
 # Swift: Selector syntax sugar
 ## Objective-C developers be jelly
 
