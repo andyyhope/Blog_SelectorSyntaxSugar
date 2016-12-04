@@ -8,7 +8,7 @@
 
 import UIKit
 
-private extension Selector {
+fileprivate extension Selector {
     static let buttonTapped = #selector(ViewController.buttonTapped(_:))
     static let keyboardWillShowNotification = #selector(ViewController.keyboardWillShowNotification(_:))
     static let barButtonItemTapped = #selector(ViewController.barButtonItemTapped(_:))
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: .keyboardWillShowNotification, name: NSNotification.Name(rawValue: "EwStringLiteral"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: .keyboardWillShowNotification, name: Notification.Name(rawValue: "EwStringLiteral"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
