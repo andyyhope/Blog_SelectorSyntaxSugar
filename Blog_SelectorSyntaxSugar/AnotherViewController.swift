@@ -15,8 +15,8 @@ class AnotherViewController: UIViewController {
 
         // This class is just to demonstrate that it canot acces ViewController.swift's Selector protocol extension
         
-        let button = UIButton(type: .System)
-        button.addTarget(self, action: .buttonTapped, forControlEvents: .TouchUpInside)
+        let button = UIButton(type: .system)
+        button.addTarget(self, action: .buttonTapped, for: .touchUpInside)
         
         // Because the Selector extension inside ViewController.swift was declared private. Nothing outside of that file can access it or it's properties.
         

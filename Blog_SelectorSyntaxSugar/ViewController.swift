@@ -19,13 +19,13 @@ class ViewController: UIViewController {
     
     @IBOutlet var button: UIButton! {
         didSet {
-            button.addTarget(self, action: .buttonTapped, forControlEvents: .TouchUpInside)
+            button.addTarget(self, action: .buttonTapped, for: .touchUpInside)
         }
     }
 
     @IBOutlet var segmentedControl: UISegmentedControl! {
         didSet {
-            segmentedControl.addTarget(self, action: .segmentedControlValueChanged, forControlEvents: .ValueChanged)
+            segmentedControl.addTarget(self, action: .segmentedControlValueChanged, for: .valueChanged)
         }
     }
     
@@ -39,27 +39,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: .keyboardWillShowNotification, name: "EwStringLiteral", object: nil)
+        NotificationCenter.default.addObserver(self, selector: .keyboardWillShowNotification, name: NSNotification.Name(rawValue: "EwStringLiteral"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    func buttonTapped(sender: UIButton) {
+    func buttonTapped(_ sender: UIButton) {
         print("Push me and then just touch me. Until I can get my... Satisfaction.")
         print(Selector.buttonTapped)
     }
     
-    func segmentedControlValueChanged(sender: UISegmentedControl) {
+    func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         print(Selector.segmentedControlValueChanged)
     }
     
-    func barButtonItemTapped(sender: UIBarButtonItem) {
+    func barButtonItemTapped(_ sender: UIBarButtonItem) {
         print(Selector.barButtonItemTapped)
     }
     
-    func keyboardWillShowNotification(notification: NSNotification) {
+    func keyboardWillShowNotification(_ notification: Notification) {
         print(Selector.keyboardWillShowNotification)
     }
 }
